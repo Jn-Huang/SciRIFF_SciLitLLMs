@@ -1,0 +1,7 @@
+**/__pycache__/*
+**/.DS_Store/*
+**/results/*
+*.egg-info/**
+lm-evaluation-harness/
+logs/
+bash_scripts/
