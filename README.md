@@ -1,8 +1,8 @@
 # SciRIFF
 
-**This repo is forked from [SciRIFF](https://github.com/allenai/SciRIFF), with *minor modification* to reproduce the results in [ScILitLLM paper](https://arxiv.org/abs/2408.15545).** **The difference is that this repo use a newer version of** `lm-evaluation-harness` **to handle LLM templates. **
+**This repo is forked from [SciRIFF](https://github.com/allenai/SciRIFF), with *minor modification* to reproduce the results in [ScILitLLM paper](https://arxiv.org/abs/2408.15545).** **The difference is that this repo use a newer version of** `lm-evaluation-harness` **to handle LLM chat templates.**
 
-**For LLM-based evaluations in MuP and Qasper, we use GPT-4o instead of GPT-3.5, as was done in the original paper.** 
+**For LLM-based evaluations in MuP and Qasper, we use GPT-4o instead of GPT-3.5, which is different from what was done in the original paper.** 
 
 **Thanks the original authors for their wonderful work!** 
 
@@ -23,12 +23,12 @@ conda create --name sciriff python=3.11
 conda activate sciriff
 ```
 
-We use the Eleuther harness to handle inference for evaluation. Different from the original repo, we suggest use the latest `lm-evaluation-harness` to handle chat templates easily.
+We use the Eleuther harness to handle inference for evaluation. Different from the original repo, we suggest use the 0.4.4 version of `lm-evaluation-harness` to handle chat templates easily (below code). To use versions after 0.4.5, you will need to modify the dataset setting under `sciriff/eval/eleuther_templates/general`. See https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/new_task_guide.md#advanced-group-configs for more information.
 
 ```bash
 git clone https://github.com/EleutherAI/lm-evaluation-harness.git
 cd lm-evaluation-harness
-# git checkout e74ec96
+git checkout 543617f
 pip install -e .[vllm]
 ```
 
@@ -40,7 +40,7 @@ pip install -e .
 
 You may get a warning about incompatible versions of the `typer` package; this can safely be ignored.
 
-For two of our evaluations, we use GPT-3.5 as an LM judge. In order to do these evaluations, you'll need an OpenAI API key:
+For two of our evaluations, we use **GPT-4o** as an LM judge. In order to do these evaluations, you'll need an OpenAI API key:
 
 ```bash
 export OPENAI_API_KEY=[your_openai_key]
@@ -66,7 +66,7 @@ python script/eval/predict_eleuther.py \
   --model vllm \
   --model_name Qwen/Qwen2.5-7B-Instruct \
   --chat_template general \
-  --gpus 4 \
+  --gpus 1 \
   --tasks science_adapt \
   --result_base results/predictions/  \
   --apply_chat_template
