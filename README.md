@@ -1,12 +1,8 @@
 # SciRIFF
 
-**This repo is forked from [SciRIFF](https://github.com/allenai/SciRIFF), with *minor modification* to reproduce the results in [ScILitLLM paper](https://arxiv.org/abs/2408.15545). The difference is that this repo use a newer version of `lm-evaluation-harness` to handle LLM templates. **
-
-
+**This repo is forked from [SciRIFF](https://github.com/allenai/SciRIFF), with *minor modification* to reproduce the results in [ScILitLLM paper](https://arxiv.org/abs/2408.15545).** **The difference is that this repo use a newer version of `lm-evaluation-harness` to handle LLM templates. **
 
 **For LLM-based evaluations in MuP and Qasper, we use GPT-4o instead of GPT-3.5, as was done in the original paper.** 
-
-
 
 **Thanks the original authors for their wonderful work!** 
 
@@ -17,9 +13,6 @@ SciRIFF is a collection of 54 tasks targeting instruction-following over scienti
 
 - [Setup](#setup)
 - [Evaluation](#evaluation)
-- [Model training](#model-training)
-- [Recreating the dataset](#recreating-the-dataset)
-- [The SciRIFF collection](#the-sciriff-collection)
 
 ## Setup
 
@@ -104,5 +97,3 @@ python script/eval/compute_science_metrics.py \
 If you've run predictions `predict_eleuther.py` on multiple models, this will evaluate all models for which predictions are available under `results/predictions`. Metrics for each model will be saved to `results/metrics/by_model/{model_name}`; there will be a subfolder for each task including cleaned-up predictions and detailed metrics.
 
 Metrics from all models will be collected in `results/metrics/tables`. The file `results/metrics/tables/summary.tsv` provides a summary of the metrics for all tasks.
-
-The results in `summary.tsv` for SciTulu should match the results reported in the preprint within roughly a point; there may be small differences due to slightly different software versions or (for LM judge evals) changes in OpenAI API models.
