@@ -1,6 +1,6 @@
 # SciRIFF
 
-**This repo is forked from [SciRIFF](https://github.com/allenai/SciRIFF), with *minor modification* to reproduce the results in [ScILitLLM paper](https://arxiv.org/abs/2408.15545).** **The difference is that this repo use a newer version of `lm-evaluation-harness` to handle LLM templates. **
+**This repo is forked from [SciRIFF](https://github.com/allenai/SciRIFF), with *minor modification* to reproduce the results in [ScILitLLM paper](https://arxiv.org/abs/2408.15545).** **The difference is that this repo use a newer version of** `lm-evaluation-harness` **to handle LLM templates. **
 
 **For LLM-based evaluations in MuP and Qasper, we use GPT-4o instead of GPT-3.5, as was done in the original paper.** 
 
