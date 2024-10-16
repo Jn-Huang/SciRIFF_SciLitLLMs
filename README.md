@@ -82,6 +82,8 @@ python script/eval/predict_eleuther.py \
     --limit 50
 ```
 
+You can download all the prediction files [here](https://drive.google.com/drive/folders/1OnqT_pCAVlB9ia6W3WX9k-koKKmqvTZB?usp=share_link).
+
 ### Computing metrics
 
 Run `compute_science_metrics.py` to compute metrics based on the model predictions.
