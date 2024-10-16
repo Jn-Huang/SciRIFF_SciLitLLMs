@@ -23,7 +23,7 @@ conda create --name sciriff python=3.11
 conda activate sciriff
 ```
 
-We use the Eleuther harness to handle inference for evaluation. Different from the original repo, we suggest use the 0.4.4 version of `lm-evaluation-harness` to handle chat templates easily (below code). To use versions after 0.4.5, you will need to modify the dataset setting under `sciriff/eval/eleuther_templates/general`. See https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/new_task_guide.md#advanced-group-configs for more information.
+We use the Eleuther harness to handle inference for evaluation. Different from the original repo, we suggest use a specific commit (version 0.4.4 ) of `lm-evaluation-harness` to handle chat templates easily (code below). To use versions after 0.4.5, you will need to modify the dataset setting under `sciriff/eval/eleuther_templates/general`. See [this link](https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/new_task_guide.md#advanced-group-configs) for more information.
 
 ```bash
 git clone https://github.com/EleutherAI/lm-evaluation-harness.git
@@ -56,8 +56,6 @@ To evaluate, we first use the Eleuther harness to handle inference, and then run
 Use `predict_eleuther.py` to make predictions for all eval tasks. The example below makes predictions using SciTulu-7B. The results will go in `results/predictions/scitulu-7b`.
 
 For the 7B, you should be fine using a single A6000 gpu. For the 70B, we've generally used 4 80GB A100's or similar, but it may be possible to do with less. Inference on the whole eval set will take a few hours; you can use the `--limit` flag to cap the number of instances per task.
-
-
 
 **We add an argument `--apply_chat_template`, so that `lm-evaluation-harness` will apply the chat template automatically.**
 
